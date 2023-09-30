@@ -25,9 +25,10 @@ export const getTododsGroupedByColumn = async () => {
         })
 
         return acc;
-    }, new Map<TypedColum, Column>)
+    }, new Map<TypedColumn, Column>)
 
-    const columnTypes: TypedColum[] = ["todo", "inprogress", "done"];
+    //static typed columns and then sort them so there is always a column even when no tasks in it.
+    const columnTypes: TypedColumn[] = ["todo", "inprogress", "done"];
 
     for(const columnType of columnTypes ){
         if(!columns.get(columnType)){
