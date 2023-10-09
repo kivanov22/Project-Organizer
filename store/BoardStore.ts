@@ -1,6 +1,6 @@
 import { databases } from '@/appwrite';
-import { getTododsGroupedByColumn } from '@/lib/getTodosGroupedByColumn';
-import { create } from 'zustand'
+import { getTodosGroupedByColumn } from '@/lib/getTodosGroupedByColumn';
+import  {create}  from 'zustand'
 
 interface BoardState {
   board: Board;
@@ -14,7 +14,7 @@ export const useBoardStore = create<BoardState>((set) => ({
     columns: new Map<TypedColumn, Column>()
   },
   getBoard: async () => {
-    const board = await getTododsGroupedByColumn();
+    const board = await getTodosGroupedByColumn();
     set({ board })
   },
   setBoardState: (board) => set({ board }),

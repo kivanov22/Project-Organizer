@@ -1,12 +1,12 @@
 import { databases } from "@/appwrite"
 
-export const getTododsGroupedByColumn = async () => {
+export const getTodosGroupedByColumn = async () => {
     const data = await databases.listDocuments(
         process.env.NEXT_PUBLIC_DATABASE_ID!,
         process.env.NEXT_PUBLIC_TODOS_COLLECTION_ID!
     )
     const todos = data.documents;
-
+        
     //array response transform to map
     const columns = todos.reduce((acc, todo) => {
         if (!acc.get(todo.status)) {
@@ -25,7 +25,7 @@ export const getTododsGroupedByColumn = async () => {
         })
 
         return acc;
-    }, new Map<TypedColumn, Column>)
+    }, new Map<TypedColumn, Column>())
 
     //static typed columns and then sort them so there is always a column even when no tasks in it.
     const columnTypes: TypedColumn[] = ["todo", "inprogress", "done"];
