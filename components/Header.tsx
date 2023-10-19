@@ -1,20 +1,39 @@
-'use client'
+"use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MagnifyingGlassIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useBoardStore } from "@/store/BoardStore";
+import fetchSuggestion from "@/lib/fetchSuggestion";
 
 const Header = () => {
-
-  const[searchString,setSearchString] = useBoardStore((state)=>[
+  const [board, searchString, setSearchString] = useBoardStore((state) => [
+    state.board,
     state.searchString,
-    state.setSearchString
-  ])
+    state.setSearchString,
+  ]);
+
+  const [loading, setLoading] = useState<boolean>(false);
+  const [suggestion, setSuggestion] = useState<string>("");
+
+  useEffect(() => {
+    if (board.columns.size === 0) return;
+    setLoading(true);
+
+    const fetchSuggestionFunc = async () => {
+      const suggestion = await fetchSuggestion(board);
+      setSuggestion(suggestion);
+      setLoading(false);
+    };
+
+    
+    fetchSuggestionFunc();
+  }, [board]);
+
   return (
     <header>
       <div className="flex flex-col md:flex-row items-center p-5 bg-gray-500/10 rounded-b-2xl">
-        <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-br from-pink-400 to-[#0055D1] rounded-md filter blur-3xl opacity-50 -z-50"/>
+        <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-br from-pink-400 to-[#0055D1] rounded-md filter blur-3xl opacity-50 -z-50" />
         <Image
           src="https://links.papareact.com/c2cdd5"
           alt="logo"
@@ -30,7 +49,7 @@ const Header = () => {
               type="text"
               placeholder="Search"
               value={searchString}
-              onChange={e=>setSearchString(e.target.value)}
+              onChange={(e) => setSearchString(e.target.value)}
               className="flex-1 outline-none p-2"
             />
             <button hidden type="submit">
@@ -44,9 +63,14 @@ const Header = () => {
       </div>
       <div className="flex items-center justify-center px-5 md:py-5">
         <p className="flex items-center text-sm p-2 font-light pr-5 shadow-xl rounded-xl w-fit bg-white italic max-w-3xl text-[#0055D1]">
-        <UserCircleIcon className="inline-block h-10 w-10 text-[#0055D1] mr-1"/>
-
-        GPT is summarising your tasks for the day...
+          <UserCircleIcon
+            className={`inline-block h-10 w-10 text-[#0055D1] mr-1
+       ${loading && "animate-spin"}
+        `}
+          />
+          {suggestion && !loading
+            ? suggestion
+            : "GPT is summarising your tasks for the day..."}
         </p>
       </div>
     </header>
