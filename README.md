@@ -12,6 +12,9 @@ yarn dev
 # or
 pnpm dev
 ```
+## Information 
+
+ChatGpt changed their billing plans and chatGpt-3.5 turbo is also moved to paid plan.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
