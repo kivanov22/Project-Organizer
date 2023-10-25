@@ -1,5 +1,45 @@
-> **Warning**
-> This project is being developed and isn't completed yet.
+<h4 align="center">
+   Full-stack web application Project Organizer created with Next.
+</h4>
+
+
+<p align="center">
+  <a href="#demo">Demo</a> •
+  <a href="#project-screenshots">Project Screenshots</a> •
+  <a href="#key-features">Key Features</a> •
+  <a href="#key-technologies">Key Technologies</a> •
+  <a href="#gettingStarted">Getting Started</a> •
+  <a href="information">Information</a>
+</p>
+
+## Demo
+
+Demo here -> ...
+
+## Project Screenshots
+
+Here is some project screenshots...
+
+- Homepage
+
+...
+<!-- ![](https://github.com/kivanov22/Airbnb-Clone-2023/blob/main/project-photos/homepage.png) -->
+
+
+## Key Features
+- Create a Task.
+- Delete a Task.
+- Search for a Task.
+- ChatGpt summary if connected to payed plan.
+
+## Key Technologies
+- Nextjs
+- Tailwind CSS
+- Typescript
+- Appwrite
+- Zustand
+- Beutiful DnD(Drag and Drop)
+- HeadlessUI
 
 ## Getting Started
 
@@ -12,9 +52,7 @@ yarn dev
 # or
 pnpm dev
 ```
-## Information 
 
-ChatGpt changed their billing plans and chatGpt-3.5 turbo is also moved to paid plan.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
@@ -22,17 +60,10 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Information 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+ChatGpt changed their billing plans and chatGpt-3.5 turbo is also moved to paid plan.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
